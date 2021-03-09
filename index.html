@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Tic Tic Toe</title>
+</head>
+<body>
+        
+        <div style="text-align: center;">
+            <input type="text" id="number" value="" placeholder="จำนวนช่อง">
+        <input type="submit" class="btn btn-warning" value="เลือก" onClick="createTable()">
+        <button class="btn btn-success" style="margin-left:20px" onclick="location.reload(true)"> เริ่มใหม่</button>
+        <div id="result"></div>
+        </div>
+        <div  id="history"  > </div>
+        <div style="background-color: whitesmoke;width: 800px;margin: auto;">
+              <div id="table" ></div>
+        </div>
+
+        <script>
+            function createTable(){
+                var number = document.getElementById("number").value
+                if(number<=2){
+                    alert('จำนวนต้องมากกว่า 2')
+                }else{
+                    var x ="", i,j;
+                var col = number;
+                var row = number
+                var count = 1;
+                for (i=0; i<col; i++) {
+                    x= x+`<div class='row'>`;
+                    for(j=0; j<row; j++){
+                        x = x+`<div id='${i} ${j}' class="col"  style='background-color:#aaa;float: left;width: 240px;padding: 10px;height: ${200-((number-3)*20)}px;margin: 3px;'onClick='player(this.id)'></div>`;
+                        
+                        count++;
+                    }
+                    x=x+`</div>`;
+                }
+                document.getElementById("table").innerHTML = x;
+                }
+                
+            }
+        </script>
+        <script src="system.js"></script>
+</body>
+</html>

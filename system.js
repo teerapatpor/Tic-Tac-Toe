@@ -37,6 +37,7 @@ function player(ID) {
       }%;text-align:center'>O</div>`;
       document.getElementById(`${ID}`).innerHTML = draw;
       current = "O";
+      document.getElementById(`turn`).innerHTML = `<div >ตาของผู้เล่น X</div>`;
     } else {
       replay.push({ position: ID, symbol: "X" });
       position[parseInt(origin[0])][parseInt(origin[1])] = 1;
@@ -45,6 +46,7 @@ function player(ID) {
       }%;text-align:center'>X</div>`;
       document.getElementById(`${ID}`).innerHTML = draw;
       current = "X";
+      document.getElementById(`turn`).innerHTML = `<div >ตาของผู้เล่น O</div>`;
     }
   }
   if (everChoose.length >= 3) {
@@ -169,6 +171,10 @@ function player(ID) {
     } else {
       checkEnd = true;
     }
+  }
+  if (everChoose.length === number * number) {
+    document.getElementById("result").innerHTML =
+      "<label class='bg-primary text-white' style='width:30%'>เสมอ</label>";
   }
 }
 

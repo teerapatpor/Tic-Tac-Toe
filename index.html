@@ -16,6 +16,7 @@
         <div id="result"></div>
         </div>
         <div  id="history"  > </div>
+        <div  id="turn"  class="bg-dark text-white mt-4"style='font-size:150%;position: absolute;left: 0;margin-left:200px'></div>`;
         <div style="background-color: whitesmoke;width: 800px;margin: auto;">
               <div id="table" ></div>
         </div>
@@ -25,7 +26,10 @@
                 var number = document.getElementById("number").value
                 if(number<=2){
                     alert('จำนวนต้องมากกว่า 2')
-                }else{
+                }else if(number >=32){
+                    alert('จำนวนต้องน้อยกว่า 31')
+                } 
+                else{
                     var x ="", i,j;
                 var col = number;
                 var row = number
@@ -40,6 +44,7 @@
                     x=x+`</div>`;
                 }
                 document.getElementById("table").innerHTML = x;
+                document.getElementById("turn").innerHTML = "<div>ตาของผู้เล่น X</div>"
                 }
                 
             }
